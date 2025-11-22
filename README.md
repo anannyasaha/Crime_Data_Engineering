@@ -39,7 +39,7 @@ Used to speed up Power BI visuals:
 
 ---
 
-## 🛠 Requirements
+## Requirements
 
 Before running the notebooks, ensure you have:
 
