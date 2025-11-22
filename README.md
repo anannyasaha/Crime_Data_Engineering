@@ -1,13 +1,13 @@
 # Ontario Crime Data Pipeline – Microsoft Fabric
 
-## 📌 Project Summary
+## Project Summary
 This repository contains six Microsoft Fabric notebooks that build an end-to-end data engineering pipeline for Statistics Canada crime data. Using the **Fabric Lakehouse + PySpark + Delta** architecture, the project ingests raw StatCan data, processes it through the **Medallion Architecture**, and produces a **Gold-layer star schema** ready for Power BI analytics.
 
 The pipeline also generates **three aggregated Gold tables** optimized for high-performance visualization in Power BI.
 
 ---
 
-## 📁 Notebook Structure
+## Notebook Structure
 
 | Order | Notebook Name | Purpose |
 |------|----------------|---------|
@@ -18,18 +18,18 @@ The pipeline also generates **three aggregated Gold tables** optimized for high-
 | **5** | `gold_transformation_v2.ipynb` | Builds Fact + Dimension star schema tables + aggregated Gold tables for optimized Power BI reporting |
 ---
 
-## 🏗️ Final Data Model (Gold Layer)
+## Final Data Model (Gold Layer)
 
-### 🎯 **Fact Table**
+### **Fact Table**
 - `fact_crime_incidents`  
   Contains incident counts, clearance rates, adult/youth charges, violation categories, and more.
 
-### 📚 **Dimension Tables**
+### **Dimension Tables**
 - `dim_municipality`
 - `dim_violations`
 - `dim_time`
 
-### 📊 **Aggregated Tables (Gold v2)**  
+###  **Aggregated Tables (Gold v2)**  
 Used to speed up Power BI visuals:
 - `vw_comparative_analysis`
 - `vw_municipality_deep_dive`
@@ -60,13 +60,13 @@ No additional installation is required.
 
 ---
 
-## 🚀 How to Run This Project in Microsoft Fabric
+##  How to Run This Project in Microsoft Fabric
 
 > Follow this sequence **exactly** for a clean pipeline run.
 
 ---
 
-### **1️⃣ Raw Ingestion – `raw_ingestion.ipynb`**
+### **1️ Raw Ingestion – `raw_ingestion.ipynb`**
 This notebook:
 - Calls the StatCan API to download the latest dataset ZIP  
 - Extracts CSVs  
@@ -76,7 +76,7 @@ No manual downloads required.
 
 ---
 
-### **2️⃣ Raw → Landing – `raw_to_landing.ipynb`**
+### **2️ Raw → Landing – `raw_to_landing.ipynb`**
 This notebook:
 - Reads Raw CSVs  
 - Cleans column names  
@@ -85,7 +85,7 @@ This notebook:
 
 ---
 
-### **3️⃣ Landing → Bronze – `landing_to_bronze.ipynb`**
+### **3️ Landing → Bronze – `landing_to_bronze.ipynb`**
 This notebook:
 - Loads Landing data  
 - Creates the Bronze Delta table **`tblcrime_bronze`**  
@@ -93,7 +93,7 @@ This notebook:
 
 ---
 
-### **4️⃣ Silver Transformation – `silver_transformation.ipynb`**
+### **4️ Silver Transformation – `silver_transformation.ipynb`**
 This notebook:
 - Removes null values  
 - Standardizes violation names  
@@ -102,7 +102,7 @@ This notebook:
 
 ---
 
-### **5️⃣ Gold Transformation – `gold_transformation.ipynb`**
+### **5️ Gold Transformation – `gold_transformation.ipynb`**
 Creates the **Star Schema**:
 
 #### Fact Table
@@ -115,7 +115,7 @@ Creates the **Star Schema**:
 
 ---
 
-### **6️⃣ Gold Transformation V2 – `gold_transformation_v2.ipynb`**
+### **6️ Gold Transformation V2 – `gold_transformation_v2.ipynb`**
 Creates performance-optimized aggregated tables:
 
 - Top crime categories  
@@ -127,7 +127,7 @@ These significantly improve Power BI refresh performance.
 
 ---
 
-## 📊 Connecting Power BI
+##  Connecting Power BI
 
 1. Open **Power BI Desktop**  
 2. Go to **OneLake Data Hub**  
@@ -141,7 +141,7 @@ These significantly improve Power BI refresh performance.
 
 ---
 
-## ♻️ Refreshing the Pipeline
+##  Refreshing the Pipeline
 
 When new StatCan data is released:
 
@@ -153,7 +153,7 @@ The Medallion architecture ensures clean, traceable, repeatable updates.
 
 ---
 
-## 📦 Folder Paths Used in This Project
+## Folder Paths Used in This Project
 
 ### **Files Layer**
 /Files/Raw/
